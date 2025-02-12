@@ -1,0 +1,23 @@
+build
+node_modules/
+npm-debug.log
+.vs/
+
+# windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# folder config file
+Desctop.ini
+
+# recycler 
+$RECYCLE.BIN/
+
+# windows installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# windows shortcuts
+*.link
