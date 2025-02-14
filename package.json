@@ -1,8 +1,33 @@
 {
+  "name": "landing",
+  "version": "1.0.0",
+  "description": "* ���������, ��� ����������� node.js � npm. ��� ����� ���������� � ��������� ������� �������\r > node -v\r ���� �������� ������ node - ��������� �� ��������� ��� (����� ���������� node)\r > npm -v\r ���� �������� ������ npm - ��������� �� ��������� ��� (����� ���������� npm)\r * ���������, ��� ���������� gulp 4, ����� �������������:\r > npm i -D gulp \r > npm i -g gulp (old: npm install gulpjs/gulp-cli#4.0 -g)",
+  "homepage": "https://github.com/dramdalex/landing#readme",
+  "bugs": {
+    "url": "https://github.com/dramdalex/landing/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dramdalex/landing.git"
+  },
+  "license": "ISC",
+  "author": "asta",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "npm": "^11.1.0"
   },
   "devDependencies": {
-    "gulp": "^5.0.0"
+    "browser-sync": "^3.0.3",
+    "eslint": "^9.20.1",
+    "gulp": "^5.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^6.0.0",
+    "gulp.spritesmith": "^6.13.1",
+    "rimraf": "^6.0.1",
+    "sass": "^1.85.0"
   }
 }
