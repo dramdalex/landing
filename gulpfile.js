@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
+const rename = require('gulp-rename');
 const sass = require('gulp-sass')(require('sass'));
 const spritesmith = require('gulp.spritesmith');
 const rimraf = require('rimraf');
@@ -9,8 +10,8 @@ const rimraf = require('rimraf');
 gulp.task('server', function () {
     browserSync.init({
         server: {
-            port:9000,
-            baseDir:"build"
+            port: 9000,
+            baseDir: "build"
         }
     });
 
@@ -29,13 +30,14 @@ gulp.task('templates:compile', function buildHTML() {
 /**--styles compile---*/
 gulp.task('styles:compile', function () {
     return gulp.src('source/styles/main.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(rename('main.min.css'))
         .pipe(gulp.dest('build/css'));
 });
 
 /** --sprite--*/
 gulp.task('sprite', function (cb) {
-    const spriteData = gulp.src('source/image/icons/*.png').pipe(spritesmith({
+    const spriteData = gulp.src('source/images/icons/*.png').pipe(spritesmith({
         imgName: 'sprite.png',
         imgPath: '../images/sprite.png',
         cssName: 'sprite.scss'
@@ -48,8 +50,8 @@ gulp.task('sprite', function (cb) {
 
 
 /**---delete--- */
-gulp.task('clean', function del(cb) {
-    return rimraf('build', cb);
+gulp.task('clean', function(cb) {
+    rimraf('build', cb);
 });
 
 /**---copy fonts*/
@@ -77,5 +79,5 @@ gulp.task('watch', function () {
 gulp.task('default', gulp.series(
     //'clean',
     gulp.parallel('templates:compile', 'styles:compile', 'sprite', 'copy'),
-    gulp.parallel('watch','server')
+    gulp.parallel('watch', 'server')
 ));
