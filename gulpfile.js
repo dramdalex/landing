@@ -5,6 +5,7 @@ const rename = require('gulp-rename');
 const sass = require('gulp-sass')(require('sass'));
 const spritesmith = require('gulp.spritesmith');
 const rimraf = require('rimraf');
+const { del } = require('del');
 
 /*---server---*/
 gulp.task('server', function () {
@@ -51,8 +52,15 @@ gulp.task('sprite', function (cb) {
 
 /**---delete--- */
 gulp.task('clean', function(cb) {
-    rimraf('build', cb);
+    rimraf('build/*', cb);
 });
+
+gulp.task('clean2', async function () {
+    await del('build/**/*', { force: true }        
+    );
+});
+
+
 
 /**---copy fonts*/
 gulp.task('copy:fonts', function () {
@@ -77,7 +85,7 @@ gulp.task('watch', function () {
 
 /**--gulp defaulp---*/
 gulp.task('default', gulp.series(
-    //'clean',
+    //'clean'    
     gulp.parallel('templates:compile', 'styles:compile', 'sprite', 'copy'),
     gulp.parallel('watch', 'server')
 ));

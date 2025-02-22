@@ -21,7 +21,9 @@
     "npm": "^11.1.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "browser-sync": "^3.0.3",
+    "del": "^8.0.0",
     "eslint": "^9.20.1",
     "gulp": "^5.0.0",
     "gulp-pug": "^5.0.0",
@@ -29,6 +31,7 @@
     "gulp-sass": "^6.0.0",
     "gulp.spritesmith": "^6.13.1",
     "rimraf": "^6.0.1",
-    "sass": "^1.85.0"
+    "sass": "^1.85.0",
+    "source-map": "^0.7.4"
   }
 }
