@@ -1,3 +1,19 @@
-body {
-    background: green;
-}
+@import "../../node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/normalize.scss/normalize";
+
+//@use "../../node_modules/font-awesome/scss/font-awesome.scss" as *;
+//@use "../../node_modules/normalize.scss/normalize.scss" as *;
+
+
+@import "global/fonts";
+@import "global/vars";
+@import "global/base";
+@import "global/common";
+@import "global/sprite";
+@import "global/button";
+
+@import "section/header";
+
+
+
+
