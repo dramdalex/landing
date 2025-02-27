@@ -40,7 +40,7 @@ gulp.task('styles:compile', function () {
 gulp.task('sprite', function (cb) {
     const spriteData = gulp.src('source/images/icons/*.png').pipe(spritesmith({
         imgName: 'sprite.png',
-        imgPath: '../images/sprite.png',
+        imgPath: '../images/sprite.png', //'../images/sprite.png',
         cssName: 'sprite.scss'
     }));
 
@@ -70,7 +70,7 @@ gulp.task('copy:fonts', function () {
 
 /**---copy img*/
 gulp.task('copy:images', function () {
-    return gulp.src('./source/images/**/*.*')
+    return gulp.src('./source/images/**/*.*', { encoding: false })
         .pipe(gulp.dest('build/images'));
 });
 
