@@ -7,6 +7,7 @@ const spritesmith = require('gulp.spritesmith');
 const rimraf = require('rimraf');
 const { del } = require('del');
 
+
 /*---server---*/
 gulp.task('server', function () {
     browserSync.init({
@@ -38,13 +39,14 @@ gulp.task('styles:compile', function () {
 
 /** --sprite--*/
 gulp.task('sprite', function (cb) {
-    const spriteData = gulp.src('source/images/icons/*.png').pipe(spritesmith({
+    const spriteData = gulp.src('source/images/icons/*.png', { coding: false })
+        .pipe(spritesmith({
         imgName: 'sprite.png',
-        imgPath: '../images/sprite.png', //'../images/sprite.png',
+        imgPath: '../images/sprite.png',
         cssName: 'sprite.scss'
     }));
 
-    spriteData.img.pipe(gulp.dest('build/images/'));
+    spriteData.img.pipe(gulp.dest('build/images/', { coding: false }));
     spriteData.css.pipe(gulp.dest('source/styles/global/'));
     cb();
 });

@@ -5,17 +5,20 @@
 //@use "../../node_modules/normalize.scss/normalize.scss" as *;
 
 
+@import "global/mixins";
 @import "global/fonts";
 @import "global/vars";
 @import "global/base";
 @import "global/common";
 @import "global/sprite";
 @import "global/button";
+@import "global/icons";
 
+@import "section/title";
 @import "section/header";
 @import "section/nav";
 @import "section/hero";
-
+@import "section/about";
 
 
 
