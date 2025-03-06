@@ -4,9 +4,10 @@ section.form-section
 			h2.title__header Get Your Free Facebook Analysis Now
 			.title__text Enter your details below
 
-		.btn-down: a.arrow-down: i.fa.fa-angle-down
+		.btn-down: button.arrow-down
+		//- : i.fa.fa-angle-down
 
-		.form-container //.is-hidden 
+		.form-container.is-hidden 
 			form(method="post" action="#").form
 				button(type="button").form__close-button x
 				.form__text.
@@ -18,8 +19,8 @@ section.form-section
 					Nulla consequat massa quis enim.
 
 				.form__fields
-					input.form__input(type="text" placeholder="Yout Name")
-					input.form__input(type="text" placeholder="Contact Number")
-					input.form__input(type="text" placeholder="Contact Name")
+					input.form__input(type="text" placeholder="Yout Name" data-valid="required")
+					input.form__input(type="text" placeholder="Contact Number" data-valid="required")
+					input.form__input(type="text" placeholder="Contact Name" data-valid="required")
 
 				button(type="submit").button.button--text-uppercase.button--red Submit now

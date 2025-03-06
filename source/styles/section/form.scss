@@ -31,6 +31,11 @@
     .arrow-down {
         @include centerer-xy();
 
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        background-color: brown;
+
         .fa {
             font-size: 2.5rem;
         }
