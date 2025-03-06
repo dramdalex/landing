@@ -1,11 +1,13 @@
-(window.addEventListener('load', () => {    
+(window.addEventListener('load',function() {        
+    alert('test');
+    addNavLinkEvent();
     init();
 })());
 
 function init() {
     const openFormButton = document.querySelector('.arrow-down');
     var form = document.querySelector('.form');
-
+    
     if (openFormButton) {
         openFormButton.addEventListener('click', function (e) {
             e.preventDefault();            
@@ -24,7 +26,7 @@ function init() {
             }
         });
     }
-
+    
 };
 
 function isValid() {
@@ -72,7 +74,7 @@ function onClose(e) {
 };
 
 //validation
-(function () {
+(function validForm() {
     var me = {};
 
     me.isEmail = function (email) {
@@ -111,4 +113,54 @@ function onClose(e) {
 
     window.validation = me;
 
-}());
+});
+
+function addNavLinkEvent() {
+    var nav = document.querySelector(".nav");
+    alert('test');
+    if (nav) {
+        nav.addEventListener('click', function (e) {
+            var target = e.target;
+
+            if (target.tagName.toLowerCase() !== 'a') {
+                return;
+            }
+
+            e.preventDefault();
+
+        });
+    }
+
+    var toggleToActiveLink = function (target) {
+        var links = document.querySelectorAll('.nav__link');
+
+        for (var i = 0; i < links.length; i++) {
+            if (links[i].classList.contains('nav__link--active')) {
+                links[i].classList.remove('nav__link--active');
+            }
+        }
+
+        target.classList.add('nav__link--active');
+
+    };
+
+};
+
+function navNavigation(target) {
+    var showedSection = target.dataset.link;
+};
+
+function scrollToActiveSection(showSection) {
+    var section = document.querySelector('.' + showSection);
+    var coords = section.getBoundingClientRect();
+
+    var timerId = setInterval(function () {
+        if (document.body.scrollTop < coords.top) {
+            window.scrollBy(0, 10);
+        }
+        else {
+            clearInterval(timerId);
+        }
+    }, 0.5);
+    
+};
